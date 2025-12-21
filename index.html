@@ -22,23 +22,49 @@
 
 .plane-wrapper {
   position: absolute;
-  left: -200px;
+  top: 40%;
+  left: -150px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  animation: fly 3.5s linear infinite;
+  animation: fly-once 3s ease-in-out forwards;
 }
 
 .plane-wrapper img {
-  width: 120px;
+  width: 80px; /* chota plane */
+  margin-bottom: 10px;
 }
 
 .loading-text {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 24px;
+  font-size: 22px;
   color: #ff6f61;
   white-space: nowrap;
 }
+
+/* ONE TIME reveal animation */
+@keyframes fly-once {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+/* hide loader */
+.hide-loader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+  
 
 /* Plane movement */
 @keyframes fly {
