@@ -42,6 +42,51 @@
   white-space: nowrap;
 }
 
+
+/* ===== FLOATING CLOUDS ===== */
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.55;
+  animation: cloud-float 4s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 12px;
+}
+
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -28px;
+  right: 12px;
+}
+
+/* sizes */
+.cloud.small { width: 70px; height: 30px; }
+.cloud.medium { width: 100px; height: 40px; }
+.cloud.large { width: 140px; height: 50px; }
+
+/* UP - DOWN floating only */
+@keyframes cloud-float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+  
 /* ONE TIME reveal animation */
 @keyframes fly-once {
   0% {
@@ -80,58 +125,6 @@
 }
 
 
-/* ===== CLOUDS ===== */
-.cloud {
-  position: absolute;
-  background: #fff;
-  border-radius: 50px;
-  opacity: 0.6;
-}
-
-.cloud::before,
-.cloud::after {
-  content: "";
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-}
-
-/* cloud shape */
-.cloud::before {
-  width: 40px;
-  height: 40px;
-  top: -20px;
-  left: 10px;
-}
-
-.cloud::after {
-  width: 50px;
-  height: 50px;
-  top: -30px;
-  right: 10px;
-}
-
-/* different sizes */
-.cloud.small {
-  width: 70px;
-  height: 30px;
-}
-
-.cloud.medium {
-  width: 100px;
-  height: 40px;
-}
-
-.cloud.large {
-  width: 140px;
-  height: 50px;
-}
-
-/* cloud animation */
-@keyframes cloud-move {
-  from { transform: translateX(-150px); }
-  to { transform: translateX(110vw); }
-}
 
   
 
@@ -215,11 +208,11 @@ h1 {
 <!-- ===== LOADER ===== -->
 <div id="loader">
 
-  <!-- clouds -->
-  <div class="cloud small" style="top:15%; animation: cloud-move 25s linear infinite;"></div>
-  <div class="cloud medium" style="top:30%; animation: cloud-move 35s linear infinite;"></div>
-  <div class="cloud small" style="top:55%; animation: cloud-move 30s linear infinite;"></div>
-  <div class="cloud large" style="top:70%; animation: cloud-move 40s linear infinite;"></div>
+  <!-- Floating Clouds -->
+<div class="cloud small" style="top:12%; left:15%; animation-duration:2s;"></div>
+<div class="cloud medium" style="top:28%; left:65%; animation-duration:5.1s;"></div>
+<div class="cloud small" style="top:55%; left:25%; animation-duration:4.2s;"></div>
+<div class="cloud large" style="top:72%; left:55%; animation-duration:3s;"></div>
 
   <!-- plane + text -->
   <div class="plane-wrapper">
